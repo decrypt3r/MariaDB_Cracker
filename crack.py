@@ -2,9 +2,9 @@ import mysql.connector
 import os
 
 #####skip-grants-table#####
-systemctl stop mariadb
-systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
-systemctl start mariadb
+os.system('systemctl stop mariadb')
+os.system('systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"')
+os.system('systemctl start mariadb')
 ###########################
 
 #####Main-Code#####
@@ -22,7 +22,7 @@ mydb.commit()
 ####################
 
 #####Unset-skipping#####
-systemctl stop mariadb
-systemctl unset-environment MYSQLD_OPTS
-systemctl start mariadb
+os.system('systemctl stop mariadb')
+os.system('systemctl unset-environment MYSQLD_OPTS')
+os.system('systemctl start mariadb')
 ########################
