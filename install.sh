@@ -25,10 +25,12 @@ then
         if [[ $fig == *"/bin/figlet"* ]]; then
                 echo -e ${GREEN} "Figlet is Installed"
         else
-                yum install wget
+                yum install wget -y
                 wget http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/f/figlet-2.2.5-9.el7.x86_64.rpm
                 rpm -i figlet-2.2.5-9.el7.x86_64.rpm
         fi
+
+
 
 
         find /bin/ -name "python2" > python.txt
@@ -36,8 +38,21 @@ then
         if [[ $pytho == *"/bin/python"* ]]; then
                 echo -e ${GREEN} "Python is Installed"
         else
-                yum install python2
+                yum install python2 -y
         fi
+
+
+
+
+        pip2 list all --format=legacy | grep mysql-connector | awk '{print $1;}' > mconnect.txt
+        mconnect=`cat mconnect.txt`
+        if [[ $mconnect == *"mysql-connector"* ]]; then
+                echo -e ${GREEN} "mysql-connector is already Installed"
+        else
+                pip2 install mysql-connector
+        fi
+
+
 
 ##############################################
 
@@ -49,7 +64,7 @@ else
         if [[ $fig == *"/bin/figlet"* ]]; then
                 echo "Figlet is Installed"
         else
-                apt-get install figlet
+                apt-get install figlet -y
         fi
 
         find /bin/ -name "python" > python.txt
@@ -57,8 +72,20 @@ else
         if [[ $pytho == *"/bin/python"* ]]; then
                 echo -e ${GREEN} "Python is Installed"
         else
-                apt-get install python2
+                apt-get install python2 -y
         fi
+
+
+        pip2 list all --format=legacy | grep mysql-connector | awk '{print $1;}' > mconnect.txt
+        mconnect=`cat mconnect.txt`
+        if [[ $mconnect == *"mysql-connector"* ]]; then
+                echo -e ${GREEN} "mysql-connector is already Installed"
+        else
+                pip2 install mysql-connector
+        fi
+
+
+
 
 #####################
 fi
