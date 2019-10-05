@@ -21,11 +21,11 @@ echo -e ${GREEN}
 read -p "Are you sure, you want to reset the password?[yes/no]:" a
 case $a in
 yes)
-	python2 marcrackk/crack.py
+	python2 /usr/bin/marcrackk/crack.py
 	;;
 
 y)
-	python2 marcrackk/crack.py
+	python2 /usr/bin/marcrackk/crack.py
 	;;
 
 no)
