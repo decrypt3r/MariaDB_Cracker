@@ -10,4 +10,16 @@ Packages Required & Installed:
 4) pip3.6
 5) wget
 
-Note: Currently this script is only working for Operating systems like RedHat and CentOS
+How To Install?
+>>> Install Git to clone repository
+      #yum install git       //for RedHat or CentOS
+      #apt-get install git   //for other Linux based OS
+      
+>>> Give execute permission to install.sh
+      #chmod +x install.sh
+      
+>>> Execute installtion script
+      #sh install.sh
+      
+>>> How to Run Command?
+      #marcrack
