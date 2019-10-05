@@ -17,19 +17,29 @@ echo -e ${RED} "Installation Started..."
 cat /etc/*-release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' | tr -d \" | awk '{print $1;}' > os.txt
 os=`cat os.txt`
 
-#####For Redhat & CentOS#####
+#####Figlet & Python For Redhat & CentOS#####
 if [ "$os" == "Red" ] || [ "$os" == "CentOS" ]
 then
         find /bin/ -name "figlet" > figlet.txt
         fig=`cat figlet.txt`
         if [[ $fig == *"/bin/figlet"* ]]; then
-                echo "Figlet is Installed"
+                echo -e ${GREEN} "Figlet is Installed"
         else
                 yum install wget
                 wget http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/f/figlet-2.2.5-9.el7.x86_64.rpm
                 rpm -i figlet-2.2.5-9.el7.x86_64.rpm
         fi
-##############################
+
+
+        find /bin/ -name "python2" > python.txt
+        pytho=`cat python.txt`
+        if [[ $pytho == *"/bin/python"* ]]; then
+                echo -e ${GREEN} "Python is Installed"
+        else
+                yum install python2
+        fi
+
+##############################################
 
 
 #####Other Linux#####
@@ -41,6 +51,15 @@ else
         else
                 apt-get install figlet
         fi
+
+        find /bin/ -name "python" > python.txt
+        pytho=`cat python.txt`
+        if [[ $pytho == *"/bin/python"* ]]; then
+                echo -e ${GREEN} "Python is Installed"
+        else
+                apt-get install python2
+        fi
+
 #####################
 fi
 
@@ -55,4 +74,3 @@ cp crack.py /usr/bin/marcrackk/
 chmod a+x /usr/bin/marcrack
 chmod a+x /usr/bin/marcrackk/crack.py
 #########################################
-
