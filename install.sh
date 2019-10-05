@@ -17,13 +17,17 @@ echo -e ${RED} "Installation Started..."
 cat /etc/*-release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME=//g' | tr -d \" | awk '{print $1;}' > os.txt
 os=`cat os.txt`
 
+
+
+
+#############################################################################################################################################
 #####Figlet & Python For Redhat & CentOS#####
 if [ "$os" == "Red" ] || [ "$os" == "CentOS" ]
 then
         find /bin/ -name "figlet" > figlet.txt
         fig=`cat figlet.txt`
         if [[ $fig == *"/bin/figlet"* ]]; then
-                echo -e ${GREEN} "Figlet is Installed"
+                echo -e ${GREEN} "Figlet is already Installed"
         else
                 yum install wget -y
                 wget http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/f/figlet-2.2.5-9.el7.x86_64.rpm
@@ -33,23 +37,23 @@ then
 
 
 
-        find /bin/ -name "python2" > python.txt
+        find /bin/ -name "python3.6" > python.txt
         pytho=`cat python.txt`
-        if [[ $pytho == *"/bin/python"* ]]; then
-                echo -e ${GREEN} "Python is Installed"
+        if [[ $pytho == *"/bin/python3.6"* ]]; then
+                echo -e ${GREEN} "Python is already Installed"
         else
-                yum install python2 -y
+                yum install python36 -y
         fi
 
 
 
 
-        pip2 list all --format=legacy | grep mysql-connector | awk '{print $1;}' > mconnect.txt
+        pip3.6 list all --format=legacy | grep mysql-connector | awk '{print $1;}' > mconnect.txt
         mconnect=`cat mconnect.txt`
         if [[ $mconnect == *"mysql-connector"* ]]; then
                 echo -e ${GREEN} "mysql-connector is already Installed"
         else
-                pip2 install mysql-connector
+                pip3.6 install mysql-connector
         fi
 
 
@@ -62,36 +66,32 @@ else
         find /bin/ -name "figlet" > figlet.txt
         fig=`cat figlet.txt`
         if [[ $fig == *"/bin/figlet"* ]]; then
-                echo "Figlet is Installed"
+                echo "Figlet is already Installed"
         else
                 apt-get install figlet -y
         fi
 
-        find /bin/ -name "python" > python.txt
+        find /bin/ -name "python3.6" > python.txt
         pytho=`cat python.txt`
-        if [[ $pytho == *"/bin/python"* ]]; then
-                echo -e ${GREEN} "Python is Installed"
+        if [[ $pytho == *"/bin/python3.6"* ]]; then
+                echo -e ${GREEN} "Python is already Installed"
         else
-                apt-get install python2 -y
+                apt-get install python36 -y
         fi
 
 
-        pip2 list all --format=legacy | grep mysql-connector | awk '{print $1;}' > mconnect.txt
+        pip3.6 list all --format=legacy | grep mysql-connector | awk '{print $1;}' > mconnect.txt
         mconnect=`cat mconnect.txt`
         if [[ $mconnect == *"mysql-connector"* ]]; then
                 echo -e ${GREEN} "mysql-connector is already Installed"
         else
-                pip2 install mysql-connector
+                pip3.6 install mysql-connector
         fi
-
-
-
-
-#####################
+######################
 fi
+#############################################################################################################################################
 
 
-################################
 
 
 #####Move to bin and give permission#####
