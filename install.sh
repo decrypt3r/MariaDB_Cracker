@@ -6,6 +6,7 @@ GREEN='\033[01;32m'
 YELLOW='\033[01;33m'
 PURPLE='\033[01;35m'
 CYAN='\033[01;36m'
+NONE='\033[00;00m'
 #####################
 
 #####Installation Animation#####
@@ -100,4 +101,13 @@ mkdir -p /usr/bin/marcrackk
 cp crack.py /usr/bin/marcrackk/
 chmod a+x /usr/bin/marcrack
 chmod a+x /usr/bin/marcrackk/crack.py
-#########################################
+echo -e ${CYAN}
+read -p  "Press Enter To Continue..."
+clear
+echo
+echo -e ${GREEN} "Use ${YELLOW}marcrack ${GREEN}command to run script...."
+echo -e ${CYAN}
+read -p "Installation completed Successfully..."
+echo -e ${NONE}
+
+########################################
