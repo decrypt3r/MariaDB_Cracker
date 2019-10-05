@@ -11,15 +11,15 @@ Packages Required & Installed:
 5) wget
 
 How To Install?
->>> Install Git to clone repository
+#Install Git to clone repository
       yum install git       //for RedHat or CentOS
       apt-get install git   //for other Linux based OS
       
->>> Give execute permission to install.sh
+#Give execute permission to install.sh
       chmod +x install.sh
       
->>> Execute installtion script
+#Execute installtion script
       sh install.sh
       
->>> How to Run Command?
+#How to Run Command?
       marcrack
