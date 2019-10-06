@@ -1,3 +1,6 @@
+#####MariaDB Cracker - marcrack: Developed by Shubh Kotwal#####
+
+
 #!/bin/bash
 
 #####Color Codes#####
@@ -6,6 +9,7 @@ GREEN='\033[01;32m'
 YELLOW='\033[01;33m'
 PURPLE='\033[01;35m'
 CYAN='\033[01;36m'
+NONE='\033[00;00m'
 #####################
 
 clear
@@ -21,23 +25,29 @@ echo -e ${GREEN}
 read -p "Are you sure, you want to reset the password?[yes/no]:" a
 case $a in
 yes)
-	python3.6 /usr/bin/marcrackk/crack.py
-	;;
+        python3.6 /usr/bin/marcrackk/crack.py
+        echo -e ${NONE}
+        ;;
 
 y)
-	python3.6 /usr/bin/marcrackk/crack.py
-	;;
+        python3.6 /usr/bin/marcrackk/crack.py
+        echo -e ${NONE}
+        ;;
 
 no)
-	echo "Thank you for using Marcrack"
-	;;
+        echo "Thank you for using Marcrack"
+        echo -e ${NONE}
+        ;;
 
 n)
-	echo "Thank you for using Marcrack"
-	;;
+        echo "Thank you for using Marcrack"
+        echo -e ${NONE}
+        ;;
 
 *)
-	echo -e ${RED} "Invalid Option"
-	;;
+        echo -e ${RED} "Invalid Option, Redirecting to ${CYAN}marcrack"
+        sleep 2
+        marcrack
+        ;;
 
 esac
